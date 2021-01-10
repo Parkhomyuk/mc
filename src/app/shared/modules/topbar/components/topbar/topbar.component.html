@@ -1,0 +1,30 @@
+<p-toolbar>
+        <div class="p-toolbar-group-left"  [routerLink]="['/']">
+             <img src='../../assets/img/backgrounds/bookitlab.svg' alt='log'/>
+        </div>
+        
+        <div class="p-toolbar-group-right">
+                <ng-container *ngIf="loggedIn$ | async">
+                        <div class="login-menu">
+                                <div class="login-item" [routerLink]="['/']"><i class="pi pi-home"></i> &nbsp;Home</div>
+                                <div class="login-item"><i class="pi pi-file"></i> &nbsp;New Article</div>
+                                <div class="login-item">  <i class="pi pi-cog"></i>&nbsp; Settings</div>
+                                <div class="login-item" [routerLink]="['/profiles', (currentUser$ | async).username]">
+
+                                        <img class="user-pic" [src]="(currentUser$ | async).image" *ngIf="(currentUser$ | async).image!=null"/> <i class="pi pi-user" *ngIf="(currentUser$ | async).image===null"></i> &nbsp; {{ (currentUser$ | async).username }}
+                                </div>
+                        </div>
+                </ng-container>
+                <ng-container *ngIf="(loggedIn$ | async)===false" >
+                
+                     <div class="login-menu">
+                                <div class="login-item" [routerLink]="['/']"><i class="pi pi-home"></i> &nbsp;Home</div>
+                                <div class="login-item" [routerLink]="['/login']"><i class="pi pi-file"></i> &nbsp;Sign in</div>
+                                <div class="login-item" [routerLink]="['/register']">  <i class="pi pi-cog"></i>&nbsp; Sign up</div>
+                                 
+                        </div>
+                
+                </ng-container>
+             
+        </div>
+</p-toolbar>

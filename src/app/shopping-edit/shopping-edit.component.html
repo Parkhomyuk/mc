@@ -1,0 +1,81 @@
+<div class="row">
+    <div class='col-xs-12'>
+        <form (ngSubmit)="onAddItem()"   [formGroup]='resipies'>
+            <div class="row">
+                <div class="col-sm-5 form-group">
+                    <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" formControlName='name' >                      
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" class="form-control" id="amount" name="amount" formControlName='amount'>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-success" type="submit" [disabled]='!resipies.valid'>Add</button>
+                    <button class="btn btn-danger" type="button">Delete</button>
+                    <button class="btn btn-success" type="button">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<h5>Basic</h5>
+<div class="p-field-radiobutton">
+	<p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1"></p-radioButton>
+	<label for="city1">Chicago</label>
+</div>
+<div class="p-field-radiobutton">
+	<p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2"></p-radioButton>
+	<label for="city2">Los Angeles</label>
+</div>
+<div class="p-field-radiobutton">
+	<p-radioButton name="city" value="New York" [(ngModel)]="city" inputId="city3"></p-radioButton>
+	<label for="city3">New York</label>
+</div>
+<div class="p-field-radiobutton">
+	<p-radioButton name="city" value="San Francisco" [(ngModel)]="city" inputId="city4"></p-radioButton>
+	<label for="city4">San Francisco</label>
+</div>
+
+<p-card header="Simple Card" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+    </p-card>
+
+    <p-card header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="assets/showcase/images/usercard.png">
+        </ng-template>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+        <ng-template pTemplate="footer">
+            <p-button label="Save" icon="pi pi-check"></p-button>
+            <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+        </ng-template>
+    </p-card>
+
+    <div class="content-section introduction">
+            <div class="feature-intro">
+                <h1>Elevation</h1>
+                <p>Elevation is an add-on utility of <a href="https://github.com/primefaces/primeflex">PrimeFlex</a> and used to specify the separation between surfaces and elements along the z-axis.</p>
+            </div>
+        </div>
+        
+        <div class="content-section implementation">
+            <div class="p-grid">
+                <div class="p-col" *ngFor="let box of boxes; index as i">
+                    <div [class]="'box p-shadow-' + (i + 1)">
+                        p-shadow-{{i + 1}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-grid">
+                <div class="p-col">1</div>
+                <div class="p-col">2</div>
+                <div class="p-col">3</div>
+            </div>

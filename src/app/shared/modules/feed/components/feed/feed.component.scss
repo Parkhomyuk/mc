@@ -1,0 +1,22 @@
+.global-feed{
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr 2fr;
+    .feed-item{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        img{
+                width:5vh;
+                height: 5vh;
+                border-radius: 50%;
+            }
+        .badges{
+           
+
+        }    
+    }
+    
+
+}

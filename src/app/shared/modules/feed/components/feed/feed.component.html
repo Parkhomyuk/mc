@@ -1,0 +1,52 @@
+<div class="global-feed">
+    <div class="right-item">left</div>
+    <div class="main-item">
+    <p-tabView>
+            <p-tabPanel header="Your Feed">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>    
+            </p-tabPanel>
+            <p-tabPanel header="GlobalFeed">
+               
+                <ng-container *ngIf="(feeds$ | async)">
+                Art Count {{(feeds$ | async).articlesCount}}
+                
+                 <p-orderList [value]="(feeds$ | async).articles" [listStyle]="{'height':'auto'}"  filterBy="title" filterPlaceholder="Filter by name" dragdrop="true">
+                        <ng-template let-feed pTemplate="item">
+                            <mc-spiner *ngIf="(isLoading$ | async)"></mc-spiner>
+                            <div class="feed-item " *ngIf="!(isLoading$ | async)" >
+                                <div>
+                                        <div class="feed-list-detail">
+                                            <img [src]="feed.author.image" alt="user image"/>
+                                            
+
+                                            <h2 class="p-mb-2">{{feed.author.username}}</h2>
+                                            <i class="pi pi-tag feed-category-icon"></i>
+                                            <span class="feed-category">{{feed.createdAt | date:"MMM.dd,yyyy"}}</span>
+                                        </div>
+                                        <div class="feed-list-action">
+                                            <h6 class="p-mb-2">{{feed.description}}</h6>
+                                            <span class="">{{feed.slug}}</span>
+                                        </div>
+                                 </div>
+                             
+                            <div class="item 2">
+                                <mc-badget [favoritesCount]="feed.favoritesCount"></mc-badget>
+                                <!-- <p-button label="Favorites" icon="pi pi-users" styleClass="p-button-success" badge="{{feed.favoritesCount}}" badgeClass="p-button-success" class="badges"></p-button> -->
+                            </div>
+                           </div> 
+                        </ng-template>
+                 </p-orderList>
+                  <mc-paggination [total]="(feeds$ | async).articlesCount" [url]="baseUrl" [currentPageNumber]="currentPageNumber" (currentState)="onSelectPage($event)" ></mc-paggination>
+                </ng-container>
+
+                
+            </p-tabPanel>
+           
+         
+        </p-tabView>
+    </div>
+     
+    <div class="left-item">Popular Tags</div>
+</div>

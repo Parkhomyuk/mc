@@ -1,0 +1,77 @@
+<div class="auth-page">
+<div>
+    <img src="../../../../assets/img/backgrounds/bookitlab.svg" alt="logo" class="auth-logo"/>
+</div>
+    <div class="container page">
+        <div class="row " style=""> 
+            
+            <div class="col-md-6 offset-md-3 col-xs-12 p-p-4 p-grid form p-shadow-3" style="text-align: center">
+                <div class='form-header'>
+                     <h1 >Sighn Up</h1> 
+                
+                    <p class="text-xs-center">
+                        <a [routerLink]="['/login']">Have an account?</a>
+                    </p> 
+                 
+                   
+                  <mc-backend-error-messages *ngIf="backendErrors$ | async" [backendErrors]="backendErrors$ | async"></mc-backend-error-messages>
+                 </div>               
+               
+               
+                <form [formGroup]="registrationForm" (ngSubmit)="onAddItem()">    
+                <div class="p-grid p-fluid">
+                    <div class="p-col-12 p-md-8 input-field">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon" [ngClass]="{'error-field': username.invalid && (username.touched || username.dirty)}"><i class="pi pi-user" [ngClass]="{'error-icon': username.invalid && (username.touched || username.dirty), 'confirm-icon': username.valid && (username.touched || username.dirty)}"  ></i></span>
+                            <input type="text" pInputText placeholder="Username" formControlName="username" id="username" required class="p-inputtext-lg" >         
+                        </div>
+                        <div class="p-col-4 error-message" *ngIf="username.invalid && (username.touched || username.dirty)">Username should not consist special symbols</div>
+                         
+                    </div>
+                     
+                        <div class="p-col-12 p-md-8 input-field">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"[ngClass]="{'error-field': email.invalid && (email.touched || email.dirty)}"><i class="pi pi-send" [ngClass]="{'error-icon': email.invalid && (email.touched || email.dirty), 'confirm-icon': email.valid && (email.touched || email.dirty)}"></i></span>
+                                <input type="text" pInputText placeholder="Email" formControlName="email" id="email" required class="p-inputtext-lg">         
+                            </div>
+                            <div class="p-col-4 error-message" *ngIf="email.invalid && (email.touched || email.dirty)"> Email is not correct</div>
+                             
+                        </div>
+                    <div class="p-col-12 p-md-8 input-field">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon" [ngClass]="{'error-field': password.invalid && (password.touched || password.dirty)}">                     
+                                    <fa-icon [icon]="lock" [ngClass]="{'error-icon': password.invalid && (password.touched || password.dirty), 'confirm-icon': password.valid && (password.touched || password.dirty)}"></fa-icon>
+                                </span>
+                                <input type="password" pInputText placeholder="Password" formControlName="password" class="p-inputtext-lg" >         
+                            </div>
+                            <span  class="p-col-4 error-message" *ngIf="password.invalid && (password.touched || password.dirty)">At least 8 characters, min 1 Uppercase 1 Lowercase 1 Number 1 special character and only contains symbols from the alphabet, numbers and chosen special characters</span>
+                    </div>  
+                    <div class="button-form p-col-6 p-offset-3">
+                         
+                        <p-button label="Submit" type="submit" [disabled]=" (isSubmitting$ | async) || !registrationForm.valid"></p-button> 
+                    </div>
+                    
+                </div>  
+            </form>   
+         
+            </div>
+        
+        </div>
+    </div>
+    <div class='auth-footer'>
+        <p>
+        For support please contact your local (placeholder).
+Only main Admin may contact support@prog4biz.com (exept for a major system failure). Please note, that password is case-sensitive. If you forgot your password/ need ressetting your password, it must be done in CTU-Basen.
+Use "Your Institute" as Institute (without the quotes)
+        </p>
+        <div>
+           <img alt="Get it on Google Play" src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png">
+         
+             
+			<img style="height: 45px" alt="Get it on Apple Store" src="../../../../assets/img/backgrounds/app-store-badge.png">
+		 
+        </div>
+    
+    </div>
+</div>
+

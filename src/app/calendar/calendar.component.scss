@@ -1,0 +1,12 @@
+.p-grid{
+    margin: 0;
+    padding: 0;
+    .p-col, .p-col-fixed{
+        border: 1px solid lightgrey;
+        text-align: center;
+    }
+
+    .p-col-fixed{
+        width:50px;
+    }
+}

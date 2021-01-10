@@ -1,0 +1,14 @@
+.login-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    .login-item{
+        margin-left: 1rem;
+         margin-right: 1rem;
+    } 
+}
+div{
+    outline: none;
+}
